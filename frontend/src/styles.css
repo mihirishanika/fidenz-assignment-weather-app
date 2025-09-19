@@ -1,0 +1,448 @@
+/* Styles to match the 2-cards-per-row look with themed weather cards */
+:root{
+	--bg:#0e2042; 
+    --text:#eaf1ff; 
+    --muted:#b9c8e3; 
+    --panel:#23304b;
+	--card-blue:#2f7ee3; 
+    --card-indigo:#6a6be7; 
+    --card-green:#2bb673; 
+    --card-orange:#faa948; 
+    --card-red:#e05b5b;
+}
+
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Inter,system-ui,Arial;
+    background:linear-gradient(#17305e,#112142);
+    color:var(--text);min-height:100vh}
+
+.container{
+    max-width:1040px;
+    margin:0 auto;
+    padding:28px 20px}
+
+
+/* Header with centered title and right-aligned button */
+.header{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:12px;
+    margin-bottom:18px;
+    position:relative;
+    min-height:48px}
+
+.header button{
+    margin-left:auto}
+
+.header h1{
+    font-weight:800;
+    font-size:28px;
+    margin:0;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center}
+
+.title-emoji{
+    display:inline-block;
+    margin-right:8px;
+    transform:translateY(2px);
+}
+
+.footer{
+    text-align:center;
+    margin:28px 0 0;
+    background:#2b2f39; /* match black background of boxes */
+    color:#e9f1ff;
+    padding:16px 20px;
+    border-radius:0;
+    /* full-bleed across viewport even inside centered container */
+    margin-left:calc(50% - 50vw);
+    margin-right:calc(50% - 50vw);
+}
+
+.center{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:40vh}
+
+.card{
+    border-radius:8px;
+    padding:16px 18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.25)}
+
+/* Card hover effect */
+.card.hoverable{
+    transition:transform .15s ease, box-shadow .15s ease;
+    cursor:pointer}
+.card.hoverable:hover{
+    transform:scale(1.02);
+    box-shadow:0 16px 40px rgba(0,0,0,.35)}
+
+.card.auth{
+    max-width:360px;
+    margin:15vh auto;
+    display:flex;
+    flex-direction:column;
+    gap:12px}
+
+.card.auth input{
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #3f4b60;
+    background:#1a2130;
+    color:var(--text)}
+
+.card.auth .row{
+    display:flex;
+    gap:10px}
+
+button{
+    padding:10px 14px;
+    border-radius:10px;
+    border:none;
+    background:#2f7ee3;
+    color:#fff;
+    cursor:pointer}
+
+button.secondary{
+    background:#3c495e}
+
+.error{
+    color:#ffb3b3}
+
+/* Two cards per row on desktop */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px}
+
+@media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:680px){.grid{grid-template-columns:1fr}}
+
+/* Weather card look */
+.card.weather{
+    background:linear-gradient(135deg,var(--card-blue),#3a8bf0); 
+    color:#fff}
+
+.card.weather.theme-blue{
+    background:linear-gradient(135deg,#2f7ee3,#3a8bf0)}
+
+.card.weather.theme-indigo{
+    background:linear-gradient(135deg,#6a6be7,#8a8cf0)}
+
+.card.weather.theme-green{
+    background:linear-gradient(135deg,#1da56c,#2bb673)}
+
+.card.weather.theme-orange{
+    background:linear-gradient(135deg,#f0a23b,#faa948)}
+
+.card.weather.theme-red{
+    background:linear-gradient(135deg,#d9534f,#e57070)}
+
+.weather-top{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    padding:14px 14px 12px 14px}
+
+.weather-top .desc{
+    margin-top:6px}
+
+.weather-top .right{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end}
+
+.weather-top .minmax{
+    font-size:12px; 
+    opacity:.95; 
+    margin-top:4px}
+
+.weather-bottom{
+    background:#2b2f39;
+    color:#e9f1ff;
+    font-size:12px;
+    border-radius:0 0 8px 8px;
+    margin:12px -18px -16px -18px;
+    padding:14px 18px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    border-top:1px solid rgba(255,255,255,.15)}
+
+.weather-bottom .col{
+    display:flex;
+    flex-direction:column;
+    gap:10px}
+
+.weather-bottom .col.right{
+    align-items:flex-end;
+    text-align:right}
+
+.weather-bottom .kv strong{
+    min-width:72px;
+    display:inline-block;
+    margin-right:4px}
+
+.weather-bottom .kv .value{
+    opacity:.95}
+
+.weather-bottom .kv.multi-line strong{
+    display:block;
+    margin-bottom:2px}
+    
+.weather-bottom strong{
+    color:#fff;
+    font-weight:700}
+
+.card.weather .card-header{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between}
+
+.card.weather .city{
+    font-size:20px;
+    font-weight:800}
+
+.card.weather .temp{
+    font-size:38px;
+    font-weight:900}
+
+.card.weather .desc{
+    opacity:.95}
+
+.card .desc{
+    margin-top:8px;
+    color:#e9f1ff}
+
+/* Extra tweaks for three-column bottom with separators and subline */
+.card.weather .sub{
+    opacity:.9;
+    font-size:12px;
+    margin-top:4px}
+
+.weather-bottom.three-cols{
+    grid-template-columns:1fr 1fr 1fr}
+
+.weather-bottom.three-cols .col{
+    position:relative}
+
+.weather-bottom.three-cols .col:not(:last-child):after{
+    content:'';
+    position:absolute;
+    top:6px;
+    right:-7px;
+    bottom:6px;
+    width:1px;
+    background:rgba(255,255,255,.12)}
+
+/* Fix wind column alignment: avoid global .center vertical centering here */
+.weather-bottom .col.center{
+    align-items:center;      /* horizontal centering only */
+    justify-content:flex-start; /* start at top like others */
+    min-height:auto;         /* remove the 40vh from global .center */
+}
+
+.wind-arrow{
+    width:28px;
+    height:28px;
+    color:#fff;
+    margin:0 auto 6px auto;
+    opacity:.9}
+
+/* Center left and right detail columns (Humidity/Visibility and Sunrise/Sunset) */
+.detail .weather-bottom.three-cols .col:first-child,
+.detail .weather-bottom.three-cols .col.right{
+    align-items:center;
+    text-align:center;
+}
+
+/* Remove fixed label width in detail view for better centering */
+.detail .weather-bottom .kv strong{
+    min-width:auto;
+}
+
+/* Detail page layout */
+.detail-wrap{
+    max-width:1100px;
+    margin:64px auto; /* nudge the box a bit down */
+    padding:0 16px;
+    display:flex;
+    justify-content:center}
+
+.detail .weather-top{
+    padding:22px 22px 18px 22px}
+
+.detail .temp{
+    font-size:48px}
+
+.detail.weather{
+    border-radius:8px}
+
+.detail .weather-bottom{
+    /* full-bleed like the list cards, aligned to card corners */
+    margin:12px -18px -16px -18px; 
+    border-radius:0 0 8px 8px}
+
+.detail .back{
+    position:absolute; 
+    top:12px; 
+    left:12px; 
+    background:transparent; 
+    border:0; 
+    color:#fff; 
+    padding:6px; 
+    cursor:pointer}
+
+.detail .back svg{
+    width:24px;
+    height:24px}
+
+/* City detail top layout */
+.title-center{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:5px;
+    padding-top:8px}
+
+.detail .city{
+    font-size:22px;
+    font-weight:800}
+
+.two-cols{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    align-items:center;
+    padding:14px 18px 0 18px;
+    position:relative;
+    min-height:150px}
+
+.two-cols:before{
+    content:'';
+    position:absolute;
+    left:50%;
+    top:14px;
+    bottom:14px;
+    width:1px;
+    background:rgba(255,255,255,.35)}
+
+.two-cols .cloud-icon{
+    width:40px;
+    height:40px;
+    opacity:.95;
+    margin-bottom:6px}
+
+/* Vertically center content within each column */
+.two-cols .col{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+/* Center cloud block horizontally */
+.two-cols .cloud{ 
+    align-items:center }
+
+.two-cols .tempcol{
+    display:flex;
+    flex-direction:column;
+    align-items:center}
+
+.two-cols .tempcol .temp{
+    font-size:44px;
+    font-weight:900;
+    text-align:center}
+
+.two-cols .minmax{
+    font-size:12px;
+    opacity:.95;
+    text-align:center}
+
+/* Dense details grid like the mock */
+.details{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    margin-top:8px}
+
+.details div{
+    color:#e9f1ff}
+
+/* Detail page layout */
+.detail-wrap{
+    max-width:1100px;
+    margin:64px auto; /* nudge the box a bit down */
+    padding:0 16px;
+    display:flex;
+    justify-content:center}
+
+/* Constrain detail card width and center it */
+.card.weather.detail{
+    width:100%;
+    max-width:720px;
+    margin:0 auto;
+    position:relative;
+}
+
+.detail .weather-top{
+    padding:22px 22px 18px 22px}
+
+.detail .temp{
+    font-size:48px}
+
+.detail.weather{
+    border-radius:8px}
+
+.detail .weather-bottom{
+    margin:12px -18px -16px -18px; 
+    border-radius:0 0 8px 8px}
+
+.detail .back{
+    position:absolute; 
+    top:12px; left:12px; 
+    background:transparent; 
+    border:0; color:#fff; 
+    padding:6px; cursor:pointer;
+    z-index:2}
+
+.detail .back svg{
+    width:24px;
+    height:24px}
+
+/* Extra tweaks for three-column bottom with separators and subline */
+.card.weather .sub{
+    opacity:.9;
+    font-size:12px;
+    margin-top:4px}
+
+.weather-bottom.three-cols{
+    grid-template-columns:1fr 1fr 1fr}
+
+.weather-bottom.three-cols .col{
+    position:relative}
+
+.weather-bottom.three-cols .col:not(:last-child):after{
+    content:'';
+    position:absolute;
+    top:6px;
+    right:-7px;
+    bottom:6px;
+    width:1px;
+    background:rgba(255,255,255,.12)}
+
+.wind-arrow{
+    width:28px;
+    height:28px;
+    color:#fff;
+    margin:0 auto 6px auto;
+    opacity:.9}
+
