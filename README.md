@@ -1,3 +1,5 @@
+
+# fidenz-assignment-weather-app
 # Weather App (React + Express)
 
 A secure web/API app that reads city codes from `cities.json`, fetches weather data from OpenWeatherMap, caches responses for 5 minutes, and displays a responsive UI. Includes simple auth (register/login) powered by JWT.
@@ -87,5 +89,3 @@ Open http://localhost:5173
 ## Notes
 - For production, replace in-memory user storage with a database and move secrets to a secure store.
 - You can change the port by editing `backend/.env` and updating the proxy in `frontend/vite.config.js`.
-
-# fidenz-assignment-weather-app
