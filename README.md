@@ -1,8 +1,11 @@
-# Weather App (React + Express)
+# # fidenz-assignment-weather-app (React + Express)
 
 A secure web/API app that reads city codes from `cities.json`, fetches weather data from OpenWeatherMap, caches responses for 5 minutes, and displays a responsive UI. Authentication is handled by Auth0 with JWT validation on the backend.
 
-This repository is ready to submit as an assignment and to run locally following the steps below.
+These are some screenshots of the application.
+<img width="1925" height="963" alt="image" src="https://github.com/user-attachments/assets/29f14343-b5b9-4d8c-aea5-452cf2737bcc" />
+<img width="1925" height="949" alt="image" src="https://github.com/user-attachments/assets/608d36f5-402a-4aa2-8670-734d33b2e943" />
+<img width="1925" height="967" alt="image" src="https://github.com/user-attachments/assets/fbbf11a3-bd9c-42c3-aad3-0f55eb800980" />
 
 ## Features
 - Reads city IDs from `frontend/public/cities.json`
@@ -243,4 +246,4 @@ Open the app at http://localhost:5173. If port 5173 is busy and the dev server u
 - Email: `careers@fidenz.com`
 - Password: `Pass#fidenz`
 
-# fidenz-assignment-weather-app
+
